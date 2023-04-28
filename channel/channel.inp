@@ -23,6 +23,8 @@ incflo.density        = 1.0             # Reference density
 incflo.use_godunov    = 1
 incflo.diffusion_type = 1
 incflo.godunov_type = "weno_z"
+incflo.do_initial_proj = true
+incflo.initial_iterations = 3
 
 transport.viscosity = 3.5e-4
 turbulence.model = Smagorinsky
@@ -34,6 +36,9 @@ incflo.physics = ChannelFlow
 ChannelFlow.density = 1.0
 ChannelFlow.re_tau = 180.0
 ChannelFlow.normal_direction = 2
+ChannelFlow.perturb_velocity = true
+ChannelFlow.perturb_y_period = 4.0
+ChannelFlow.perturb_z_period = 1.0
 WallFunction.wall_shear_stress_type = constant
 
 io.output_default_variables = 1
