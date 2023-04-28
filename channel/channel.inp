@@ -29,11 +29,12 @@ turbulence.model = Smagorinsky
 Smagorinsky_coeffs.Cs = 0.1
 
 ICNS.source_terms = BodyForce
-BodyForce.magnitude = 0.003969 0 0
+BodyForce.magnitude = 0.003969 0.0 0.0
 incflo.physics = ChannelFlow
 ChannelFlow.density = 1.0
 ChannelFlow.re_tau = 180.0
 ChannelFlow.normal_direction = 2
+WallFunction.wall_shear_stress_type = constant
 
 io.output_default_variables = 1
 
@@ -52,5 +53,5 @@ geometry.prob_hi        =   12.0 6.0 1.0  # Hi corner coordinates 8*pi*3pi*1
 geometry.is_periodic    =   1   1  0   # Periodicity x y z (0/1)
 
 # Boundary conditions
-zlo.type =   "no_slip_wall"
+zlo.type =   "wall_model"
 zhi.type =   "slip_wall"
