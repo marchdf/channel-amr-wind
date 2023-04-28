@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#SBATCH --nodes=2
+#SBATCH --time=48:00:00
+#SBATCH --account=hfm
+#SBATCH --job-name=channel
+#SBATCH --output=out.%x_%j
+
+module purge
+export SPACK_MANAGER=${HOME}/exawind/spack-manager
+source ${SPACK_MANAGER}/start.sh && quick-activate ${SPACK_MANAGER}/environments/amr-wind-channel
+module load mpt
+spack load amr-wind
+
+echo "Job name       = $SLURM_JOB_NAME"
+echo "Num. nodes     = $SLURM_JOB_NUM_NODES"
+echo "Num. MPI Ranks = $mpi_ranks"
+echo "Num. threads   = $OMP_NUM_THREADS"
+echo "Working dir    = $PWD"
+
+mpirun -np 72 amr_wind channel.inp
