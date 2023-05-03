@@ -2,3 +2,6 @@ movie.visit
 *.log
 plt*
 chk*
+out
+.DS_Store
+plots.pdf
