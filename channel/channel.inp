@@ -36,7 +36,7 @@ incflo.physics = ChannelFlow
 ChannelFlow.density = 1.0
 ChannelFlow.re_tau = 180.0
 ChannelFlow.normal_direction = 2
-ChannelFlow.perturb_velocity = false
+ChannelFlow.perturb_velocity = true
 ChannelFlow.perturb_y_period = 4.0
 ChannelFlow.perturb_z_period = 1.0
 WallFunction.wall_shear_stress_type = constant
@@ -59,4 +59,4 @@ geometry.is_periodic    =   1   1  0   # Periodicity x y z (0/1)
 
 # Boundary conditions
 zlo.type =   "wall_model"
-zhi.type =   "slip_wall"
+zhi.type =   "zero_gradient"
