@@ -9,7 +9,7 @@ import scipy.interpolate as interp
 import yt
 from matplotlib.backends.backend_pdf import PdfPages
 
-plt.style.use("../project.mplstyle")
+plt.style.use("project.mplstyle")
 ## Define constants for Re_tau ~ 5200
 kappa = 0.384
 B = 4.27
@@ -64,6 +64,14 @@ def main():
         type=int,
         required=False,
     )
+    parser.add_argument(
+        "-p",
+        "--pdf_file",
+        help="plot pdf name",
+        default="channel_mean.pdf",
+        type=str,
+        required=False,
+    )
 
     args = parser.parse_args()
     if args.labels is None:
@@ -71,7 +79,7 @@ def main():
     else:
         labels = args.labels
 
-    fname = "channel_mean.pdf"
+    fname = args.pdf_file
     for i, fdir in enumerate(args.fdirs):
         plt_files = sorted(glob.glob(f"{fdir}/plt*"), key=natsort)[-args.navg :]
         n_avg = len(plt_files)
