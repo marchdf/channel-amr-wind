@@ -40,6 +40,7 @@ ChannelFlow.perturb_velocity = true
 ChannelFlow.perturb_y_period = 1.0
 ChannelFlow.perturb_z_period = 4.0
 WallFunction.wall_shear_stress_type = log_law
+WallFunction.log_law_ref_index = 0
 
 io.output_default_variables = 1
 
